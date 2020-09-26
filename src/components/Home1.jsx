@@ -17,10 +17,16 @@ const Home = () => {
       const res = await axios.get(
         "http://kaboom.rksv.net/api/historical?interval=3"
       );
-      let str = "timestamp,open,high,low,close,volume";
+      let str = "x,y";
       let data = res.data;
-      const csvData = str + "\n" + data.join("\n");
-      const historicalData = csvParse(csvData);
+      historicalData = arr.map((val) => {
+        splittedArr = val.split(",");
+        const [timestamp, ...remainingVal] = splittedArr;
+        return {
+          x: timestamp,
+          y: remainingVal,
+        };
+      });
       setData(historicalData);
     } catch (error) {
       console.log(error);

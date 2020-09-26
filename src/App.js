@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import LiveChart from "./components/LiveChart";
+import "./App.css";
 const routes = [
   { path: "/", name: "Dashboard", Component: Dashboard },
   { path: "/home", name: "Home", Component: Home },
